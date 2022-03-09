@@ -1,3 +1,52 @@
-"""
-This program is ...
-#Intro
+#import module to validate the time
+import datetime
+
+#Dictionary with the current guests and their room
+from tracemollac import start
+
+guests = {'1':'Khaliun','2':'Joy','3':'Connie','4':'Dari','5':'Enkhriilen'}
+
+#Dictionaries with the menu
+appetizers = {'1':'Ceaser Salad','2':'Pigs in a Blanket', '3':'Mozarella Sticks'}
+main_courses = {'4':'Cheese Pizza', '5':'Carbonara', '6':'Lasagna'}
+desserts = {'7':'Vanilla Ice-Cream','8':'Chocolate Milkshake','9':'Fruit Salad'}
+
+#Guest name and room
+name = None
+room = None
+
+#Dictionary with the customer's order
+order = {}
+
+#check if the room has been booked
+while room not in guests.keys():
+  room = input('What is your room number?: ')
+  #check if room exists
+  if room in guests.keys():
+    name = input('What is your name?: ')
+    #Check if the room and guest name match
+    if guests[room] !=name:
+      print ('Your name does not match our records.')
+      room = None
+  else:
+    print (f'Room {room} had not been booked.')
+  
+#Print Appetizers
+print()
+print ('Appetizers Menu')
+print ('-------------')
+for code, food in appetizers.items():
+  print (code, '->', food)
+  
+#Add a blank line
+print()
+
+#Select Appetizers
+appteizer = None
+#Validate the Appetizer
+while appetizer not appetizers.keys():
+  appetizer = input('Please, enter the appetizer code: ')
+  if appetizer not in appetizers:
+    print('Wrong appetizer code: ')
+  else:
+    order[appetizer] = appetizers[appetizer]
