@@ -45,8 +45,48 @@ print()
 appteizer = None
 #Validate the Appetizer
 while appetizer not appetizers.keys():
-  appetizer = input('Please, enter the appetizer code: ')
+  appetizer = input('Enter the appetizer code: ')
   if appetizer not in appetizers:
     print('Wrong appetizer code: ')
   else:
     order[appetizer] = appetizers[appetizer]
+  
+#Print main courses
+print ()
+print ('Main courses menu')
+print ('-----------------')
+for code, food in main_courses.items():
+    print (code, '->', food)
+
+#Add a blank line
+print()
+
+#Select main course
+main_course = None
+#validate the starter
+while main_course not in main_courses.keys():
+    main_course = input ('Enter the starter code: ')
+    if main_course not in main_courses:
+        print('Wrong main course code.')
+    else:
+        order[main_course] = main_courses[main_course]
+
+#Print desserts
+print ()
+print ('Desserts menu')
+print ('-------------')
+for code, food in desserts.items():
+    print (code, '->', food)
+
+#Add a blank line
+print()
+
+#Select desserts
+dessert = None
+#validate the dessert
+while dessert not in desserts.keys():
+    dessert = input ('Enter the dessert code:')
+    if dessert not in desserts:
+        print('Wrong dessert code.')
+    else:
+        order[dessert] = desserts[dessert]
