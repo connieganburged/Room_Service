@@ -90,3 +90,36 @@ while dessert not in desserts.keys():
         print('Wrong dessert code.')
     else:
         order[dessert] = desserts[dessert]
+
+#Validate the delivery time
+validtime = False
+timeformat = "%H:%M"
+while not validtime:
+    delivery_time = input("Enter the delivery time (hh:mm): ")
+    try:
+        validtime = datetime.datetime.strptime(delivery_time, timeformat)
+    except ValueError:
+       print ('Time format hh:mm')
+
+#Print the order:
+print ()
+print ('Here is your order')
+print ('----------')
+for code, food in order.items():
+    print (code, '->', food)
+
+print('Delivery time:', delivery_time)
+
+#Confirm the order
+place_order = ''
+
+while place_order.lower() not in ('yes', 'no'):
+    place_order = input ('Would you like to place your order (yes/no)? ')
+
+print ()
+if place_order == 'yes':
+    print ('Please wait for your order to be ready')
+else:
+    print ('Sorry, your order has not been processed')
+
+print ('Thank you for choosing us!')
