@@ -1,24 +1,21 @@
-#import module to validate the time
-import datetime
-
-#Dictionary with the current guests and their room
+#Dictionary for guests and their rooms
 from tracemollac import start
 
 guests = {'1':'Khaliun','2':'Joy','3':'Connie','4':'Dari','5':'Enkhriilen'}
 
-#Dictionaries with the menu
+#Dictionary for menu
 appetizers = {'1':'Ceaser Salad','2':'Pigs in a Blanket', '3':'Mozarella Sticks'}
 main_courses = {'4':'Cheese Pizza', '5':'Carbonara', '6':'Lasagna'}
 desserts = {'7':'Vanilla Ice-Cream','8':'Chocolate Milkshake','9':'Fruit Salad'}
 
-#Guest name and room
+#Guest's name and room
 name = None
 room = None
 
-#Dictionary with the customer's order
+#Guests's order
 order = {}
 
-#check if the room has been booked
+#Check for booked room
 while room not in guests.keys():
   room = input('What is your room number?: ')
   #check if room exists
@@ -29,7 +26,7 @@ while room not in guests.keys():
       print ('Your name does not match our records.')
       room = None
   else:
-    print (f'Room {room} had not been booked.')
+    print (f'Room {room} has not been booked.')
   
 #Print Appetizers
 print()
@@ -43,7 +40,7 @@ print()
 
 #Select Appetizers
 appteizer = None
-#Validate the Appetizer
+#Check the Appetizer
 while appetizer not appetizers.keys():
   appetizer = input('Enter the appetizer code: ')
   if appetizer not in appetizers:
@@ -58,12 +55,10 @@ print ('-----------------')
 for code, food in main_courses.items():
     print (code, '->', food)
 
-#Add a blank line
-print()
 
 #Select main course
 main_course = None
-#validate the starter
+#Check the appetizer
 while main_course not in main_courses.keys():
     main_course = input ('Enter the starter code: ')
     if main_course not in main_courses:
@@ -78,9 +73,6 @@ print ('-------------')
 for code, food in desserts.items():
     print (code, '->', food)
 
-#Add a blank line
-print()
-
 #Select desserts
 dessert = None
 #validate the dessert
@@ -91,7 +83,7 @@ while dessert not in desserts.keys():
     else:
         order[dessert] = desserts[dessert]
 
-#Validate the delivery time
+#Check delivery
 validtime = False
 timeformat = "%H:%M"
 while not validtime:
@@ -101,20 +93,19 @@ while not validtime:
     except ValueError:
        print ('Time format hh:mm')
 
-#Print the order:
+#Print order:
 print ()
 print ('Here is your order')
-print ('----------')
 for code, food in order.items():
     print (code, '->', food)
 
 print('Delivery time:', delivery_time)
 
-#Confirm the order
+#Check order
 place_order = ''
 
 while place_order.lower() not in ('yes', 'no'):
-    place_order = input ('Would you like to place your order (yes/no)? ')
+    place_order = input ('Would you like to confirm your order (yes/no)? ')
 
 print ()
 if place_order == 'yes':
